@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/searchBar"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:text="@string/prompt" />
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/blank_button_selector"
+            android:contentDescription="@string/lookup"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_menu_search_holo_light"
+            android:tint="@color/buttonHint" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/button"
+            android:layout_alignBottom="@id/button"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_toStartOf="@+id/cross"
+            android:autofillHints=""
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:imeOptions="actionSend"
+            android:inputType="none"
+            android:labelFor="@+id/editText"
+            android:singleLine="true" />
+
+        <View
+            android:id="@+id/verticalLine"
+            android:layout_width="2dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/button"
+            android:layout_alignBottom="@id/button"
+            android:layout_toStartOf="@id/button"
+            android:background="#bbbbbb" />
+
+        <ImageButton
+            android:id="@+id/cross"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/verticalLine"
+            android:background="#00000000"
+            android:contentDescription="@string/cross"
+            android:src="@drawable/dialog_ic_close_normal_holo_light"
+            android:tint="@color/buttonHint" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@id/searchBar"
+        android:background="#bbbbbb" />
+
+
+</RelativeLayout>

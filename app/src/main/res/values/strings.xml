@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">DarkskyDict</string>
+    <string name="lookup">look up</string>
+    <string name="about">about</string>
+    <string name="prompt">Long click the X &#8230; :(</string>
+    <string name="ok">OK</string>
+    <string name="author">Author : 达克 · 斯盖</string>
+    <string name="url">http://weibo.com/darksky321</string>
+    <string name="powered">Powered by Youdao</string>
+    <string name="cross">clear</string>
+
+</resources>
