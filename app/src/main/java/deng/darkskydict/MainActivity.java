@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
     private Thread queryThread;
     private Runnable queryRunnable;
     private AlertDialog aboutDialog;
+    private InputMethodManager manager;
     private final Handler handler = new Handler(Looper.getMainLooper()) {
 
         @Override
@@ -68,7 +69,7 @@ public class MainActivity extends Activity {
         textView = findViewById(R.id.textView);
         ImageButton cross = findViewById(R.id.cross);
         editText.requestFocus();
-        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         queryRunnable = () -> {
             // TODO 自动生成的方法存根
             String ret = YoudaoDict.lookUpAWord(editText.getText()
@@ -143,14 +144,18 @@ public class MainActivity extends Activity {
             // TODO 自动生成的方法存根
             editText.setText("");
             editText.requestFocus();
-            manager.showSoftInput(editText, 0);
+            manager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
         });
 
         textView.setOnTouchListener((view, motionEvent) -> {
             manager.hideSoftInputFromWindow(view.getWindowToken(), 0);
             return false;
         });
-        manager.showSoftInput(editText, 0);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handler.postDelayed(() -> manager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT), 100);
+    }
 }
